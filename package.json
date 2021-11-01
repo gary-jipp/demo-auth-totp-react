@@ -1,0 +1,29 @@
+{
+  "name": "shell-react-express",
+  "version": "1.0.0",
+  "description": "TOTP 2nd Factor Auth",
+  "main": "server.js",
+  "engines": {
+    "node": "12"
+  },
+  "scripts": {
+    "start": "(cd server-express && npm start);",
+    "start:client": "cd client-react && npm start",
+    "install:server": "cd server-express && npm install",
+    "install:client": "cd client-react && npm install",
+    "build:client": "cd client-react && npm run build",
+    "install": "(npm run install:server) && (npm run install:client)",
+    "build": "npm run build:client",
+    "deploy:nix": "cp -a client-react/build/. public",
+    "deploy:win": "xcopy /e /y /i /q client-react\\build public",
+    "deploy": "(npm run deploy:nix) || (npm run deploy:win)",
+    "heroku-postbuild": "(npm run build) && (npm run deploy)"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
