@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import { authContext } from 'providers/AuthProvider';
-import Counter from 'Counter';
 
 export default function Info() {
   const { user, logout } = useContext(authContext);
